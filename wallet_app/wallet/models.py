@@ -4,7 +4,9 @@ from django.db import models
 
 
 class Wallet(models.Model):
-    uuid = models.UUIDField("Wallet UUID", default=uuid.uuid4, editable=False)
+    uuid = models.UUIDField(
+        "Wallet UUID", primary_key=True, default=uuid.uuid4, editable=False
+    )
     balance = models.FloatField()
 
     class Meta:
