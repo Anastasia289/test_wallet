@@ -59,21 +59,14 @@ WSGI_APPLICATION = "wallet_app.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": os.getenv("POSTGRES_DB", "dbname"),
+        "USER": os.getenv("POSTGRES_USER", "user"),
+        "PASSWORD": os.getenv("POSTGRES_PASSWORD", "password"),
+        "HOST": os.getenv("HOST", "db"),
+        "PORT": os.getenv("PORT", 5432),
     }
 }
-
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.postgresql",
-#         "NAME": os.getenv("POSTGRES_DB", "dbname"),
-#         "USER": os.getenv("POSTGRES_USER", "user"),
-#         "PASSWORD": os.getenv("POSTGRES_PASSWORD", "password"),
-#         "HOST": os.getenv("HOST", "db"),
-#         "PORT": os.getenv("PORT", 5432),
-#     }
-# }
 
 
 AUTH_PASSWORD_VALIDATORS = [
