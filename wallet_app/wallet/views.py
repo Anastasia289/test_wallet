@@ -25,7 +25,7 @@ class WalletViewSet(viewsets.ModelViewSet):
     )
     @transaction.atomic
     def transactions(self, request, pk):
-        """Рц."""
+        """Пополнение баланса и снятие денег."""
         try:
             wallet = get_object_or_404(
                 Wallet.objects.select_for_update(), uuid=pk
